@@ -7,5 +7,8 @@
     "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#48c1e3c1d6baefa4f1a126f188c27c4fefd36bff",
     "selenium-webdriver": "github:DefinitelyTyped/DefinitelyTyped/selenium-webdriver/selenium-webdriver.d.ts#7de6c3dd94feaeb21f20054b9f30d5dabc5efabd",
     "underscore": "github:DefinitelyTyped/DefinitelyTyped/underscore/underscore.d.ts#bd269cad4cb2b495f940c7b6afc5825d568029be"
+  },
+  "dependencies": {
+    "lodash": "github:typed-typings/npm-lodash#7ccf9dc406a792d702067f4eab0fa8df4109fcaa"
   }
 }

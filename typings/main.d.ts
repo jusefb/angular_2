@@ -4,3 +4,4 @@
 /// <reference path="main/ambient/node/node.d.ts" />
 /// <reference path="main/ambient/selenium-webdriver/selenium-webdriver.d.ts" />
 /// <reference path="main/ambient/underscore/underscore.d.ts" />
+/// <reference path="main/definitions/lodash/lodash.d.ts" />

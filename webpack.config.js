@@ -61,10 +61,10 @@ module.exports = {
         https: false,
         host: 'localhost',
         port: 8888,
-        // proxy:[
-        //     {
-        //         path: "*", target: "http://localhost:3000"
-        //     }
-        // ]
+        proxy:[
+            {
+                path: "*", target: "http://localhost:3000"
+            }
+        ]
     }
 };
