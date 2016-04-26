@@ -27,6 +27,7 @@ app.use(require('node-sass-middleware')({
 
 //app.use(express.static(path.join(__dirname, 'client')));
 app.use("/dist", express.static(path.join(__dirname, '../client/dist')));
+app.use("/data", express.static(path.join(__dirname, '../client/src/data')));
 
 app.use('/', routes);
 

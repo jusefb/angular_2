@@ -1,0 +1,12 @@
+<div class="container g--12">
+    <div *ngFor="#event of events | async" class="">
+        <div class="card nudge--left nudge--right no-nudge--s">
+            <h2 class="">{{event.name}}</h2>
+            <p>{{event.description}}</p>
+            <div>
+                <button [routerLink]="['EventDetails', {id: event.id}]" class="btn--raised btn--blue">View</button>
+            </div>
+        </div>
+    </div>
+</div>
+<button class="new-event btn--float" [routerLink]="['NewEvent']">+</button>

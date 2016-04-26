@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1,
+    "name": "Trip to Prague",
+    "description": "Our Friends stag due in Prague",
+    "participants": [
+      {
+        "id": 1,
+        "name": "Mark"
+      },
+      {
+        "id": 2,
+        "name": "Paul"
+      },
+      {
+        "id": 3,
+        "name": "Sarah"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Trip to Paris",
+    "description": "Sarahs birthday in Paris",
+    "participants": [
+      {
+        "id": 1,
+        "name": "Mark"
+      },
+      {
+        "id": 2,
+        "name": "Paul"
+      },
+      {
+        "id": 3,
+        "name": "Sarah"
+      }
+    ]
+  }
+]

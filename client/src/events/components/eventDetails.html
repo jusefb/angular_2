@@ -1,0 +1,58 @@
+<div class="g--10 m--1">
+    <div class="card g--12 tabs tab-demo-name">
+        <input type="radio" name="tabs" id="tab1" checked>
+        <div class="tab-label-content" id="tab1-content">
+            <label for="tab1">Event Details</label>
+            <div class="tab-content">
+                <h3>Event {{event?.name}}</h3>
+                <p>{{event?.description}}</p>
+                <div>
+                    <button class="btn--green btn--raised" [routerLink]="['UpdateEvent', {id: event?.id}]">Edit</button>
+                    <button class="btn--red btn--raised" (click)="deleteEvent(event?.id)">Delete</button>
+                </div>
+            </div>
+        </div>
+
+        <input type="radio" name="tabs" id="tab2">
+        <div class="tab-label-content" id="tab2-content">
+            <label for="tab2">Charges</label>
+            <div class="tab-content">
+                <table class="g--8 card m--2">
+                    <tr class="table-header">
+                        <td>Charge</td>
+                        <td>Amount</td>
+                        <td>Participants</td>
+                        <td>PaidBy</td>
+                    </tr>
+                    <tr *ngFor="#charge of eventCharges | async">
+                        <td>{{charge.name}}</td>
+                        <td>£{{charge.amount}}</td>
+                        <td><button class="btn--flat margin" *ngFor="#participant of charge.participants">{{participant.name}}</button>
+                        </td>
+                        <td>{{charge.paidBy.name}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <input type="radio" name="tabs" id="tab3">
+        <div class="tab-label-content" id="tab3-content">
+            <label for="tab3">Payments</label>
+            <div class="tab-content">
+                <ul>
+                    <li *ngFor="#payment of payments">
+                        <h4>{{payment.name}}</h4>
+                        <ul>
+                            <li *ngFor="#chargeGroup of payment.chargesPerPersonPaid">
+                                {{chargeGroup.owedTo}}
+                                £ {{chargeGroup.total}}
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide slide-demo"></div>
+    </div>
+</div>

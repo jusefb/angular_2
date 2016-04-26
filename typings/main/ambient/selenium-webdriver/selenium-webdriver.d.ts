@@ -1567,7 +1567,7 @@ declare namespace webdriver {
          * producer.
          *
          * <p>If this Deferred is rejected and there are no listeners registered before
-         * the next turn of the event loop, the rejection will be passed to the
+         * the next turn of the eventId loop, the rejection will be passed to the
          * {@link webdriver.promise.ControlFlow} as an unhandled failure.
          *
          * <p>If this Deferred is cancelled, the cancellation reason will be forward to
@@ -1662,11 +1662,11 @@ declare namespace webdriver {
          * callback/task's promised result.
          *
          * Each time a ControlFlow empties its task queue, it will fire an
-         * {@link webdriver.promise.ControlFlow.EventType.IDLE IDLE} event. Conversely,
+         * {@link webdriver.promise.ControlFlow.EventType.IDLE IDLE} eventId. Conversely,
          * whenever the flow terminates due to an unhandled error, it will remove all
          * remaining tasks in its queue and fire an
          * {@link webdriver.promise.ControlFlow.EventType.UNCAUGHT_EXCEPTION
-         * UNCAUGHT_EXCEPTION} event. If there are no listeners registered with the
+         * UNCAUGHT_EXCEPTION} eventId. If there are no listeners registered with the
          * flow, the error will be rethrown to the global error handler.
          *
          * @extends {EventEmitter}
@@ -1710,7 +1710,7 @@ declare namespace webdriver {
             toString(): string;
 
             /**
-             * Resets this instance, clearing its queue and removing all event listeners.
+             * Resets this instance, clearing its queue and removing all eventId listeners.
              */
             reset(): void;
 
@@ -1727,7 +1727,7 @@ declare namespace webdriver {
 
             /**
              * Schedules a task for execution. If there is nothing currently in the
-             * queue, the task will be executed in the next turn of the event loop. If
+             * queue, the task will be executed in the next turn of the eventId loop. If
              * the task function is a generator, the task will be executed using
              * {@link webdriver.promise.consume}.
              *
@@ -1760,7 +1760,7 @@ declare namespace webdriver {
              * Condition functions may schedule sub-tasks with this instance, however,
              * their execution time will be factored into whether a wait has timed out.
              *
-             * In the event a condition returns a Promise, the polling loop will wait for
+             * In the eventId a condition returns a Promise, the polling loop will wait for
              * it to be resolved before evaluating whether the condition has been satisfied.
              * The resolution time for a promise is factored into whether a wait has timed
              * out.
@@ -3260,7 +3260,7 @@ declare namespace webdriver {
 
     /**
      * Object that can emit events for others to listen for. This is used instead
-     * of Closure's event system because it is much more light weight. The API is
+     * of Closure's eventId system because it is much more light weight. The API is
      * based on Node's EventEmitters.
      */
     class EventEmitter {
@@ -3276,25 +3276,25 @@ declare namespace webdriver {
         //region Methods
 
         /**
-         * Fires an event and calls all listeners.
-         * @param {string} type The type of event to emit.
+         * Fires an eventId and calls all listeners.
+         * @param {string} type The type of eventId to emit.
          * @param {...*} var_args Any arguments to pass to each listener.
          */
         emit(type: string, ...var_args: any[]): void;
 
         /**
-         * Returns a mutable list of listeners for a specific type of event.
-         * @param {string} type The type of event to retrieve the listeners for.
+         * Returns a mutable list of listeners for a specific type of eventId.
+         * @param {string} type The type of eventId to retrieve the listeners for.
          * @return {!Array.<{fn: !Function, oneshot: boolean,
          *                   scope: (Object|undefined)}>} The registered listeners for
-         *     the given event type.
+         *     the given eventId type.
          */
         listeners(type: string): Array<{fn: Function; oneshot: boolean; scope: any;}>;
 
         /**
          * Registers a listener.
-         * @param {string} type The type of event to listen for.
-         * @param {!Function} listenerFn The function to invoke when the event is fired.
+         * @param {string} type The type of eventId to listen for.
+         * @param {!Function} listenerFn The function to invoke when the eventId is fired.
          * @param {Object=} opt_scope The object in whose scope to invoke the listener.
          * @return {!webdriver.EventEmitter} A self reference.
          */
@@ -3302,9 +3302,9 @@ declare namespace webdriver {
 
         /**
          * Registers a one-time listener which will be called only the first time an
-         * event is emitted, after which it will be removed.
-         * @param {string} type The type of event to listen for.
-         * @param {!Function} listenerFn The function to invoke when the event is fired.
+         * eventId is emitted, after which it will be removed.
+         * @param {string} type The type of eventId to listen for.
+         * @param {!Function} listenerFn The function to invoke when the eventId is fired.
          * @param {Object=} opt_scope The object in whose scope to invoke the listener.
          * @return {!webdriver.EventEmitter} A self reference.
          */
@@ -3312,25 +3312,25 @@ declare namespace webdriver {
 
         /**
          * An alias for {@code #addListener()}.
-         * @param {string} type The type of event to listen for.
-         * @param {!Function} listenerFn The function to invoke when the event is fired.
+         * @param {string} type The type of eventId to listen for.
+         * @param {!Function} listenerFn The function to invoke when the eventId is fired.
          * @param {Object=} opt_scope The object in whose scope to invoke the listener.
          * @return {!webdriver.EventEmitter} A self reference.
          */
         on(type: string, listenerFn: Function, opt_scope?:any): EventEmitter;
 
         /**
-         * Removes a previously registered event listener.
-         * @param {string} type The type of event to unregister.
+         * Removes a previously registered eventId listener.
+         * @param {string} type The type of eventId to unregister.
          * @param {!Function} listenerFn The handler function to remove.
          * @return {!webdriver.EventEmitter} A self reference.
          */
         removeListener(type: string, listenerFn: Function): EventEmitter;
 
         /**
-         * Removes all listeners for a specific type of event. If no event is
+         * Removes all listeners for a specific type of eventId. If no eventId is
          * specified, all listeners across all types will be removed.
-         * @param {string=} opt_type The type of event to remove listeners from.
+         * @param {string=} opt_type The type of eventId to remove listeners from.
          * @return {!webdriver.EventEmitter} A self reference.
          */
         removeAllListeners(opt_type?: string): EventEmitter;
@@ -3366,21 +3366,21 @@ declare namespace webdriver {
         /**
          * Schedules a command to move backwards in the browser history.
          * @return {!webdriver.promise.Promise.<void>} A promise that will be resolved
-         *     when the navigation event has completed.
+         *     when the navigation eventId has completed.
          */
         back(): webdriver.promise.Promise<void>;
 
         /**
          * Schedules a command to move forwards in the browser history.
          * @return {!webdriver.promise.Promise.<void>} A promise that will be resolved
-         *     when the navigation event has completed.
+         *     when the navigation eventId has completed.
          */
         forward(): webdriver.promise.Promise<void>;
 
         /**
          * Schedules a command to refresh the current page.
          * @return {!webdriver.promise.Promise.<void>} A promise that will be resolved
-         *     when the navigation event has completed.
+         *     when the navigation eventId has completed.
          */
         refresh(): webdriver.promise.Promise<void>;
 
@@ -4064,7 +4064,7 @@ declare namespace webdriver {
          * For a {@link webdriver.until.Condition} or function, the wait will repeatedly
          * evaluate the condition until it returns a truthy value. If any errors occur
          * while evaluating the condition, they will be allowed to propagate. In the
-         * event a condition returns a {@link webdriver.promise.Promise promise}, the
+         * eventId a condition returns a {@link webdriver.promise.Promise promise}, the
          * polling loop will wait for it to be resolved and use the resolved value for
          * whether the condition has been satisified. Note the resolution time for
          * a promise is factored into whether a wait has timed out.

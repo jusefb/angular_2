@@ -1,0 +1,14 @@
+<ul class="g--10 g-s--12">
+    <li *ngFor="#charge of charges | async" class="tile container--center">
+        <div class="g--9 no-margin">
+            <span class="">{{charge.name}} (£ {{charge.amount}})</span>
+            <button class="btn--flat margin" *ngFor="#participant of charge.participants">{{participant.name}}</button>
+        </div>
+        <div class="g--3 no-margin right">
+            <button [routerLink]="['UpdateCharge', {id: charge.id}]" class="btn--raised btn--blue">Edit</button>
+            <button class="btn--red btn--raised" (click)="deleteFriend(charge?.id)">Delete</button>
+        </div>
+    </li>
+
+</ul>
+<button class="new-charge btn--float" [routerLink]="['NewCharge']">+</button>

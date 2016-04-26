@@ -16,7 +16,7 @@ module.exports = {
         loaders: [
             {
                 test: /\.css$/,
-                loader: ["style-loader", "css-loader"]
+                loaders: ["style-loader", "css-loader"]
             },
             {
                 test: /\.ts?$/,
@@ -25,11 +25,11 @@ module.exports = {
             },
             {
                 test: /\.html$/,
-                loader: 'raw!html'
+                loader: 'raw'
             },
             {
                 test: /\.scss$/,
-                loader: ["style-loader", "css-loader!sass-loader"]
+                loaders: ["style-loader", "css-loader", "sass-loader"]
             },
             {
                 test: /\.(otf|eot|svg|ttf|woff|png|gif)/,

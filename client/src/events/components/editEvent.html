@@ -1,0 +1,18 @@
+<form class="card g--8 m--2" #f="ngForm" (ngSubmit)="onSubmit(editEventForm.value)"
+      [ngFormModel]="editEventForm">
+    <div class="g--12">
+        <label for="eventName">Name:</label>
+        <input id="eventName" type="text" name="name" [ngFormControl]="editEventForm.controls['name']"
+               [(ngModel)]="event.name"/>
+    </div>
+    <div class="g--12 no-margin">
+        <label for="eventDescription">Description:</label>
+            <textarea class="g--12" rows="5" name="description" id="eventDescription"
+                      [ngFormControl]="editEventForm.controls['description']"
+                      [(ngModel)]="event.description"></textarea>
+    </div>
+    <div class="g--12 no-margin">
+        <button class="btn--raised btn--green" type="submit">Save</button>
+        <button class="btn--raised" type="button" [routerLink]="['EventList']">Cancel</button>
+    </div>
+</form>

@@ -1,0 +1,13 @@
+<ul class="g--10 g-s--12">
+    <li *ngFor="#friend of friends | async" class="tile container--center">
+        <div class="g--9 no-margin">
+            <span class="">{{friend.name}}</span>
+        </div>
+        <div class="g--3 no-margin right">
+            <button [routerLink]="['UpdateFriend', {id: friend.id}]" class="btn--raised btn--blue">Edit</button>
+            <button class="btn--red btn--raised" (click)="deleteFriend(friend?.id)">Delete</button>
+        </div>
+    </li>
+
+</ul>
+<button class="new-friend btn--float" [routerLink]="['NewFriend']">+</button>

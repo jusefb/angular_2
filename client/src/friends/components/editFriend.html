@@ -1,0 +1,11 @@
+<form class="card g--8 m--2" #f="ngForm" (ngSubmit)="onSubmit(editFriendForm.value)" [ngFormModel]="editFriendForm">
+    <div class="g--12">
+        <label for="friendName">Name:</label>
+        <input id="friendName" type="text" name="name" [ngFormControl]="editFriendForm.controls['name']"
+               [(ngModel)]="friend.name"/>
+    </div>
+    <div class="g--12">
+        <button type="submit">Save</button>
+        <button type="button" [routerLink]="['FriendList']">Cancel</button>
+    </div>
+</form>
