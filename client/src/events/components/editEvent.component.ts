@@ -4,6 +4,8 @@ import {FORM_DIRECTIVES, FormBuilder} from "angular2/common";
 import {EventsService} from "../services/events.service.ts";
 import {Observable} from "rxjs/Observable";
 import {Event} from "../models/Event";
+import {FriendsService} from "../../friends/services/friends.service";
+import * as _ from "lodash";
 
 @Component({
     selector: 'new-eventId',
@@ -14,8 +16,9 @@ export class EditEvent implements OnInit{
     private event:Event;
     private mode;
     private editEventForm;
+    private friends;
 
-    constructor(private eventsService: EventsService, private _router: Router, private _routeParams: RouteParams, private _fb: FormBuilder){
+    constructor(private eventsService: EventsService, private friendsService: FriendsService, private _router: Router, private _routeParams: RouteParams, private _fb: FormBuilder){
         this.event = new Event({});
         this.editEventForm = _fb.group({
             'name': null,
@@ -31,6 +34,8 @@ export class EditEvent implements OnInit{
                 this.mode = "UPDATE";
             });
         }
+
+        this.friends = this.friendsService.getAll();
     }
 
     onSubmit(newEvent: any){
@@ -43,5 +48,19 @@ export class EditEvent implements OnInit{
             this.eventsService.add(newEvent).subscribe(() => {
                 this._router.navigate(['EventList']);
             });
+    }
+
+    isSelected(friendId:number){
+        return _.findIndex(this.event['participants'], {id: friendId}) > -1 ? "true" : "false";
+    }
+
+    setParticipant(friend){
+       var participant = _.findIndex(this.event.participants, {id: friend.id});
+
+        if(participant > -1)
+            _.remove(this.event.participants, {id: friend.id});
+        else
+            this.event.participants.push(friend);
+
     }
 }

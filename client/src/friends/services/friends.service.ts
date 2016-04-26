@@ -23,13 +23,13 @@ let friendsData = [
 export class FriendsService {
 
     getAll() {
-        let firends:Observable<[Friend]> = Observable.create((observer) => {
+        let friends:Observable<[Friend]> = Observable.create((observer) => {
                 observer.next(friendsData);
                 observer.complete();
             }
         );
 
-        return firends;
+        return friends;
     }
 
     get(id){

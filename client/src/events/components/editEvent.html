@@ -12,6 +12,13 @@
                       [(ngModel)]="event.description"></textarea>
     </div>
     <div class="g--12 no-margin">
+        <!--<ul>-->
+            <!--<li *ngFor="#friend of friends| async">-->
+                <!--<input (click)="setParticipant(friend)" type="checkbox" [(ngModle)]="selectedParticipants"/>&nbsp;{{friend.name}}-->
+            <!--</li>-->
+        <!--</ul>-->
+    </div>
+    <div class="g--12 no-margin">
         <button class="btn--raised btn--green" type="submit">Save</button>
         <button class="btn--raised" type="button" [routerLink]="['EventList']">Cancel</button>
     </div>

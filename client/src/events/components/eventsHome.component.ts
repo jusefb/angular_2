@@ -7,10 +7,11 @@ import {EventDetails} from "./eventDetails.component";
 import {EventList} from "./eventsList.component";
 import {EditEvent} from "./editEvent.component";
 import {ChargesService} from "../../charges/services/charge.service";
+import {FriendsService} from "../../friends/services/friends.service";
 
 @Component({
     selector: 'events-home',
-    providers: [EventsService, ChargesService],
+    providers: [EventsService, FriendsService, ChargesService],
     directives: [ROUTER_DIRECTIVES],
     host: {
         'class': 'g--12'

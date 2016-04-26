@@ -6,48 +6,48 @@ import {Injectable} from "angular2/core";
 //import 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 
-// let eventsData = [
-//     {
-//         id: 1,
-//         name: 'Trip to Prague',
-//         description: 'Our Friends stag due in Prague',
-//         participants: [
-//             {
-//                 id: 1,
-//                 name: 'Mark'
-//             },
-//             {
-//                 id: 2,
-//                 name: 'Paul'
-//             },
-//             {
-//                 id: 3,
-//                 name: 'Sarah'
-//             }
-//         ]
-//     },
-//     {
-//         id: 2,
-//         name: 'Trip to Paris',
-//         description: 'Sarahs birthday in Paris',
-//         participants: [
-//             {
-//                 id: 1,
-//                 name: 'Mark'
-//             },
-//             {
-//                 id: 2,
-//                 name: 'Paul'
-//             },
-//             {
-//                 id: 3,
-//                 name: 'Sarah'
-//             }
-//         ]
-//     }
-// ];
+let eventsData = [
+    {
+        id: 1,
+        name: 'Trip to Prague',
+        description: 'Our Friends stag due in Prague',
+        participants: [
+            {
+                id: 1,
+                name: 'Mark'
+            },
+            {
+                id: 2,
+                name: 'Paul'
+            },
+            {
+                id: 3,
+                name: 'Sarah'
+            }
+        ]
+    },
+    {
+        id: 2,
+        name: 'Trip to Paris',
+        description: 'Sarahs birthday in Paris',
+        participants: [
+            {
+                id: 1,
+                name: 'Mark'
+            },
+            {
+                id: 2,
+                name: 'Paul'
+            },
+            {
+                id: 3,
+                name: 'Sarah'
+            }
+        ]
+    }
+];
 
-let eventsData = [];
+// let eventsData = [];
 
 @Injectable()
 export class EventsService {
@@ -56,14 +56,14 @@ export class EventsService {
     }
     
     getAll() {
-        // let events:Observable<[Event]> = Observable.create((observer) => {
-        //         observer.next(eventsData);
-        //         observer.complete();
-        //     }
-        // );
-        //return events;
+        let events:Observable<[Event]> = Observable.create((observer) => {
+                observer.next(eventsData);
+                observer.complete();
+            }
+        );
+        return events;
         //noinspection TypeScriptUnresolvedFunction
-        return this.http.request('/data/eventsData.json');
+        //return this.http.request('/data/eventsData.json');
     }
 
     getEvent(id){
