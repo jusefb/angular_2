@@ -56,13 +56,13 @@ export class EventsService {
     }
     
     getAll() {
-        // let events:Observable<[Event]> = Observable.create((observer) => {
-        //         observer.next(eventsData);
-        //         observer.complete();
-        //     }
-        // );
-        // return events;
-        return this.http.request('/data/eventsData.json');
+        let events:Observable<[Event]> = Observable.create((observer) => {
+                observer.next(eventsData);
+                observer.complete();
+            }
+        );
+        return events;
+        //return this.http.request('/data/eventsData.json');
     }
 
     getEvent(id){
